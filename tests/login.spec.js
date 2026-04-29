@@ -1,7 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
+require('dotenv').config();
 
-test('Valid login using POM', async ({ page }) => {
+test('Valid login using POM  @smoke, @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();
@@ -13,7 +14,7 @@ test('Valid login using POM', async ({ page }) => {
   await expect(page).toHaveURL(/secure/);
 });
 
-test('Invalid login using POM', async ({ page }) => {
+test('Invalid login using POM  @smoke, @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();
@@ -23,7 +24,7 @@ test('Invalid login using POM', async ({ page }) => {
     .toContainText('Your username is invalid!');
 });
 
-test('Login fails with empty fields', async ({ page }) => {
+test('Login fails with empty fields @smoke, @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();
