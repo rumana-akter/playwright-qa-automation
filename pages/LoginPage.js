@@ -8,7 +8,7 @@ class LoginPage {
     }
   
     async goto() {
-        await this.page.goto(process.env.BASE_URL + '/login');
+        await this.page.goto('/login');
     }
   
     async login(username, password) {
