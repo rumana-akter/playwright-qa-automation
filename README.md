@@ -31,3 +31,6 @@ QA-Playwright/
 ├── docs/
 │   └── login-test-cases.md
 └── README.md
+## Test Report
+
+![Test Report](test-report.png)
