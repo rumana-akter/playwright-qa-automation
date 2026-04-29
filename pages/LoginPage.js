@@ -1,10 +1,10 @@
 class LoginPage {
     constructor(page) {
       this.page = page;
-      this.username = '#username';
-      this.password = '#password';
-      this.loginBtn = 'button[type="submit"]';
-      this.flashMsg = '#flash';
+      this.usernameInput = page.locator('#username');
+      this.passwordInput = page.locator('#password');
+      this.loginButton = page.getByRole('button', { name: 'Login' });
+      this.flashMessage = page.locator('#flash');
     }
   
     async goto() {
@@ -12,13 +12,13 @@ class LoginPage {
     }
   
     async login(username, password) {
-      await this.page.locator(this.username).fill(username);
-      await this.page.locator(this.password).fill(password);
-      await this.page.locator(this.loginBtn).click();
+      await this.usernameInput.fill(username);
+      await this.passwordInput.fill(password);
+      await this.loginButton.click();
     }
   
-    async getMessage() {
-      return this.page.locator(this.flashMsg);
+    getMessage() {
+      return this.flashMessage;
     }
   }
   
