@@ -18,6 +18,8 @@ The project includes UI automation, Page Object Model structure, and API testing
 - Page Object Model implementation
 - API GET request validation
 - Basic assertions
+- Base URL configuration
+- Retry configuration for CI stability
 
 ## Project Structure
 
@@ -34,3 +36,4 @@ QA-Playwright/
 ## Test Report
 
 ![Test Report](test-report.png)
+
