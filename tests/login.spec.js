@@ -6,34 +6,31 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/login');
 });
 
-test('Valid login using POM  @smoke, @regression', async ({ page }) => {
+test('Valid login using POM @smoke @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
-  //await loginPage.goto();
-  await loginPage.login('tomsmith', 'SuperSecretPassword!');
+  await loginPage.loginAsValidUser();
 
-  await expect(await loginPage.getMessage())
+  await expect(loginPage.getMessage())
     .toContainText('You logged into a secure area!');
 
   await expect(page).toHaveURL(/secure/);
 });
 
-test('Invalid login using POM  @smoke, @regression', async ({ page }) => {
+test('Invalid login using POM @smoke @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
-  //await loginPage.goto();
   await loginPage.login('wronguser', 'wrongpass');
 
-  await expect(await loginPage.getMessage())
+  await expect(loginPage.getMessage())
     .toContainText('Your username is invalid!');
 });
 
-test('Login fails with empty fields @smoke, @regression', async ({ page }) => {
+test('Login fails with empty fields @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
-  await loginPage.goto();
   await loginPage.login('', '');
 
-  await expect(await loginPage.getMessage())
+  await expect(loginPage.getMessage())
     .toContainText('Your username is invalid!');
 });

@@ -10,3 +10,9 @@ test('Verify GET post API returns expected response', async ({ request }) => {
   expect(body.userId).toBe(1);
   expect(body.title).toBeTruthy();
 });
+
+test('API returns 404 for invalid endpoint @regression', async ({ request }) => {
+  const response = await request.get('https://jsonplaceholder.typicode.com/invalid');
+
+  expect(response.status()).toBe(404);
+});

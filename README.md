@@ -37,3 +37,11 @@ QA-Playwright/
 
 ![Test Report](test-report.png)
 
+## Highlights
+
+- Page Object Model (POM)
+- UI and API testing
+- Positive and negative test scenarios
+- Retry and baseURL configuration
+- Test hooks and reusable methods
+
