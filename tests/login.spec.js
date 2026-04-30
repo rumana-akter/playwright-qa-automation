@@ -2,10 +2,14 @@ const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
 require('dotenv').config();
 
+test.beforeEach(async ({ page }) => {
+  await page.goto('/login');
+});
+
 test('Valid login using POM  @smoke, @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
-  await loginPage.goto();
+  //await loginPage.goto();
   await loginPage.login('tomsmith', 'SuperSecretPassword!');
 
   await expect(await loginPage.getMessage())
@@ -17,7 +21,7 @@ test('Valid login using POM  @smoke, @regression', async ({ page }) => {
 test('Invalid login using POM  @smoke, @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
-  await loginPage.goto();
+  //await loginPage.goto();
   await loginPage.login('wronguser', 'wrongpass');
 
   await expect(await loginPage.getMessage())
