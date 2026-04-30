@@ -1,7 +1,5 @@
 # Playwright QA Automation Framework
-
-This is a QA automation practice project built using Playwright and JavaScript.  
-The project includes UI automation, Page Object Model structure, and API testing.
+A scalable QA automation framework built using Playwright (JavaScript) with Page Object Model (POM), UI automation, and API testing.
 
 ## Tech Stack
 
